@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filterable Image Gallery | CodingNepal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Filter Items -->
+        <nav class="side-nav">
+            <div class="items">
+                <span class="item active" data-name="all">All</span>
+                <span class="item" data-name="gym">Gym</span>
+                <span class="item" data-name="trip">Trip</span>
+                <span class="item" data-name="family">Family</span>
+                <span class="item" data-name="personal">Personal</span>
+                <span class="item" data-name="others">Others</span>
+            </div>
+        </nav>
+        
+        <!-- Filter Images and Video -->
+        <div class="gallery">
+            <div class="image" data-name="others"><span><img src="images/blog68.jpg" alt=""></span></div>
+            <div class="image" data-name="gym"><span><img src="https://t4.ftcdn.net/jpg/00/99/82/15/360_F_99821575_nVEHTBXzUnTcLIKN6yOymAWAnFwEybGb.jpg" alt=""></span></div>
+            <div class="image" data-name="trip"><span><img src="https://d2rdhxfof4qmbb.cloudfront.net/wp-content/uploads/20190425170948/friends-on-road-trip.jpg" alt=""></span></div>
+            <div class="image" data-name="trip"><span><img src="https://www.fabhotels.com/blog/wp-content/uploads/2020/05/road-trip-hacks-tips-600.jpg" alt=""></span></div>
+            <div class="image" data-name="family"><span><img src="https://littleleapling.com/wp-content/uploads/sites/17281/2022/01/extended-family-photo-session-tips.jpg" alt=""></span></div>
+            <div class="image" data-name="family"><span><img src="https://static1.squarespace.com/static/5373b147e4b0e5824b359a50/5373b35ee4b0c4a5e90e3c3e/5fc8a54e43b29e7a5afabf5b/1718879407878/endofsessionfamilypose.jpg?format=1500w" alt=""></span></div>
+            <div class="image" data-name="personal"><span><img src="https://webeminence.com/wp-content/uploads/2017/05/personal-photos-website-1.jpg" alt=""></span></div>
+            
+            <div class="image" data-name="trip">
+                <span>
+                    <video controls width="320" height="240">
+                        <source src="videos/trip1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </span>
+            </div>
+            <div class="image" data-name="gym">
+                <span>
+                    <video controls width="320" height="240">
+                        <source src="videos/gym1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Image/Video Preview Box -->
+    <div class="preview-box">
+        <div class="details">
+            <span class="title">Category: <p></p></span>
+            <span class="icon fas fa-times"></span>
+            <span class="icon fas fa-download" onclick="downloadImage()"></span>
+        </div>
+        <div class="media-box">
+            <!-- Initially empty, will be populated by JavaScript -->
+            <img src="" alt="Preview Image">
+        </div>
+    </div>
+    <div class="shadow"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
