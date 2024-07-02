@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Gallery </title>
+    <title>Filterable Image Gallery</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
@@ -21,7 +21,7 @@
             </div>
         </nav>
         
-        <!-- Filter Images and Video -->
+        <!-- Filter Images and Videos -->
         <div class="gallery">
             <div class="image" data-name="others"><span><img src="images/blog68.jpg" alt=""></span></div>
             <div class="image" data-name="gym"><span><img src="https://t4.ftcdn.net/jpg/00/99/82/15/360_F_99821575_nVEHTBXzUnTcLIKN6yOymAWAnFwEybGb.jpg" alt=""></span></div>
@@ -33,7 +33,7 @@
             
             <div class="image" data-name="trip">
                 <span>
-                    <video controls width="320" height="240">
+                    <video controls>
                         <source src="videos/trip1.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -41,7 +41,7 @@
             </div>
             <div class="image" data-name="gym">
                 <span>
-                    <video controls width="320" height="240">
+                    <video controls>
                         <source src="videos/gym1.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -60,6 +60,10 @@
         <div class="media-box">
             <!-- Initially empty, will be populated by JavaScript -->
             <img src="" alt="Preview Image">
+            <video controls style="display: none;">
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </div>
     <div class="shadow"></div>

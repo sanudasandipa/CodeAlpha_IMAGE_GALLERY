@@ -28,15 +28,26 @@ document.addEventListener('DOMContentLoaded', function() {
 const previewBox = document.querySelector('.preview-box'),
       categoryName = previewBox.querySelector('.title p'),
       previewImg = previewBox.querySelector('img'),
+      previewVideo = previewBox.querySelector('video'),
       closeIcon = previewBox.querySelector('.icon'),
       shadow = document.querySelector('.shadow');
 
 function preview(element) {
     document.querySelector('body').style.overflow = 'hidden';
-    let selectedPrevImg = element.querySelector('img').src;
     let selectedImgCategory = element.getAttribute('data-name');
-    previewImg.src = selectedPrevImg;
     categoryName.textContent = selectedImgCategory;
+    if (element.querySelector('img')) {
+        let selectedPrevImg = element.querySelector('img').src;
+        previewImg.src = selectedPrevImg;
+        previewImg.style.display = 'block';
+        previewVideo.style.display = 'none';
+    } else if (element.querySelector('video')) {
+        let selectedPrevVideo = element.querySelector('video').querySelector('source').src;
+        previewVideo.querySelector('source').src = selectedPrevVideo;
+        previewVideo.load();
+        previewImg.style.display = 'none';
+        previewVideo.style.display = 'block';
+    }
     previewBox.classList.add('show');
     shadow.classList.add('show');
     closeIcon.onclick = () => {
@@ -47,20 +58,13 @@ function preview(element) {
 }
 
 function downloadImage() {
-    // Get the source of the preview image
-    let imgSrc = previewImg.src;
+    let mediaSrc = previewImg.style.display === 'block' ? previewImg.src : previewVideo.querySelector('source').src;
 
-    // Create a temporary link element
     let downloadLink = document.createElement('a');
-    downloadLink.href = imgSrc;
-    downloadLink.download = 'image.jpg'; // Set a default file name for download
+    downloadLink.href = mediaSrc;
+    downloadLink.download = mediaSrc.split('/').pop(); // Set file name for download
 
-    // Append the link to the body
     document.body.appendChild(downloadLink);
-
-    // Trigger a click event on the link to start download
     downloadLink.click();
-
-    // Remove the link from the body
     document.body.removeChild(downloadLink);
 }

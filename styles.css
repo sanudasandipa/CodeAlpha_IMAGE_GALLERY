@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+/* styles.css */
 
+/* General styling */
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +15,7 @@
 
 body {
     padding: 10px;
-    background: url('images/background.jpg');
+    background-image: url('https://cdn.wallpapersafari.com/73/33/P9b2gR.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -22,16 +23,24 @@ body {
     overflow: hidden;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    overflow: hidden;
+}
+
 .side-nav {
     width: 200px;
-    background-color: rgba(62, 146, 202, 0.9); /* Slightly transparent to blend with the background */
+    background-color: rgba(62, 146, 202, 0.9);
     padding: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    height: 45vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    height: 100%;
     position: fixed;
     top: 10px;
     left: 10px;
     border-radius: 50px;
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .items {
@@ -53,21 +62,19 @@ body {
     color: white;
 }
 
-.wrapper {
-    margin: 100px auto;
-    max-width: 1100px;
-    padding-left: 220px; /* To accommodate the fixed side-nav */
-}
-
 .gallery {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 30px;
+    margin-left: 220px; /* To accommodate the fixed side-nav */
+    padding: 20px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    height: calc(100vh - 40px); /* Adjust height based on padding */
 }
 
 .gallery .image {
-    width: calc(100% / 4);
-    padding: 7px;
+    width: calc(100% / 4 - 14px);
+    margin: 7px;
+    box-sizing: border-box;
 }
 
 .gallery .image span {
@@ -76,14 +83,16 @@ body {
     overflow: hidden;
 }
 
-.gallery .image img {
+.gallery .image img,
+.gallery .image video {
     width: 100%;
     vertical-align: middle;
     transition: all 0.3s ease;
     border-radius: 20px;
 }
 
-.gallery .image:hover img {
+.gallery .image:hover img,
+.gallery .image:hover video {
     transform: scale(1.1);
 }
 
@@ -168,20 +177,24 @@ body {
 
 @media (max-width: 1000px) {
     .gallery .image {
-        width: calc(100% / 3);
+        width: calc(100% / 3 - 14px);
     }
 }
 
 @media (max-width: 800px) {
     .gallery .image {
-        width: calc(100% / 2);
+        width: calc(100% / 2 - 14px);
     }
 }
 
 @media (max-width: 600px) {
     .wrapper {
-        margin: 30px auto;
-        padding-left: 0; /* Adjust padding to center content */
+        flex-direction: column;
+    }
+
+    .gallery {
+        margin-left: 0;
+        height: auto;
     }
 
     .gallery .image {
@@ -223,8 +236,21 @@ body {
     }
 }
 
-.gallery video {
-    border-radius: 20px;
-    width: 100%; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
+/* Style for the scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
