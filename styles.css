@@ -14,7 +14,7 @@
 
 body {
     padding: 10px;
-    background-image: url('https://cdn.wallpapersafari.com/73/33/P9b2gR.jpg');
+    background: url('images/background.jpg')
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
